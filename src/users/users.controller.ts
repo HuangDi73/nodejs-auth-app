@@ -1,10 +1,11 @@
-import { inject } from 'inversify';
+import { inject, injectable } from 'inversify';
 import { NextFunction, Request, Response } from 'express';
 import { BaseController } from '../common/base.controller';
 import { IUsersController } from './users.controller.interface';
 import { TYPES } from '../type';
 import { ILogger } from '../logger/logger.service.interface';
 
+@injectable()
 export class UsersController extends BaseController implements IUsersController {
 	constructor(@inject(TYPES.ILogger) private readonly logger: ILogger) {
 		super(logger);
